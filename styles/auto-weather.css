@@ -1,0 +1,75 @@
+/*This is a selector for all elements*/
+* {
+    overflow-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    text-align: center;
+}
+body {
+    max-width: 100vw;
+    max-height:  100vh;
+    /* margin: auto; */
+    color: white;
+    text-shadow: 1px 1px black;
+    background-image: url(/images/evert-van-duijn-NSRlbb8JoF8-unsplash.jpg);
+}
+a {
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 2%;
+    color: black;
+    background-color: white;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 1em;
+}
+a:hover {
+    background-color: rgba(0, 0, 0, 0.747);
+    color: aqua;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    border: 4px solid rgb(0, 225, 255);
+    transition: 200ms;
+}
+/* img {
+    z-index: -5;
+    position: fixed;
+    object-fit: fill;
+} */
+header {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.747);
+    color: white;
+    border-bottom: 2px solid rgb(0, 255, 170);
+    text-shadow: 2px 2px black;
+    padding: 1%;
+    visibility: hidden;
+}
+main {
+    margin-left: 2vw;
+}
+/* This is the CSS that I will need to alter below*/
+.weather-container{
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.747);
+    border: 4px solid rgb(0, 225, 255);
+    color:#fff;
+    width:10vw;
+    margin: 20vh auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    padding: 5%;
+}
+.weather-container h1 {
+    font-size: 5.1em;
+    padding: 10px;
+}
+.weather-container h2{
+    font-size: 5em;
+    padding:10px;
+    margin-left:25px;
+    font-weight: 300;
+}
+.weather-container h3{
+    font-weight: 300;
+    letter-spacing: 5px;
+}
