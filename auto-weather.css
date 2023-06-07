@@ -11,7 +11,9 @@ body {
     /* margin: auto; */
     color: white;
     text-shadow: 1px 1px black;
-    background-image: url(/images/evert-van-duijn-NSRlbb8JoF8-unsplash.jpg);
+    /* background-image: url(/images/evert-van-duijn-NSRlbb8JoF8-unsplash.jpg); */
+    background-image: linear-gradient(to bottom, #ffffff, #ebebeb, #00b7ff);
+    background-attachment: fixed;
 }
 a {
     text-decoration: none;
@@ -44,18 +46,21 @@ header {
     padding: 1%;
     visibility: hidden;
 }
+ul {
+    list-style-type: none;
+  }
 main {
-    margin-left: 2vw;
+    /* margin-left: 2vw; */
 }
 /* This is the CSS that I will need to alter below*/
 .weather-container{
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     background-color: rgba(0, 0, 0, 0.747);
-    border: 4px solid rgb(0, 225, 255);
+    border-bottom: 4px solid rgb(0, 225, 255);
     color:#fff;
     width:10vw;
     margin: 20vh auto;
-    border-radius: 5px;
+    border-radius: 5%;
     box-shadow: 0 5px 5px rgba(0,0,0,0.3);
     padding: 5%;
 }
@@ -68,8 +73,32 @@ main {
     padding:10px;
     margin-left:25px;
     font-weight: 300;
+    color: rgb(158, 224, 255);
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 .weather-container h3{
-    font-weight: 300;
-    letter-spacing: 5px;
+    text-transform: capitalize;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: aqua;
+    text-shadow: 2px 2px 2px black;
+}
+div.seven-day-weather-box {
+    margin-top: -10vh;
+    background-color: rgba(0, 0, 0, 0.747);
+    /* border-bottom: 4px solid rgb(0, 225, 255); */
+    color: #fff;
+    width: 16vw;
+    height: 24vh;
+    border-radius: 5%;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    padding: 1%;
+}
+.seven-day-weather-box h2 {
+    color: rgb(0, 225, 255);
+    margin: 10%;
+}
+.seven-day-weather-box li {
+    padding: 1%;
+    text-align: left;
 }

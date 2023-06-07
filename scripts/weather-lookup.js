@@ -1,35 +1,50 @@
-//Gather the users location
 function getLocation() {
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getWeather);
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getWeatherAndLocation);
     } else {
         alert("Geolocation is not supported by your current browser");
     }
 }
-//This will lookup the user's location and find their coordinates
-//Here is the api Key: 8a8a81fda9977409b7e63aeaed6e20d9
-function getWeather(position) {
-    //Create a variable that gathers the latitude info
+
+function getWeatherAndLocation(position) {
     let lat = position.coords.latitude;
-    //Create a variable that gathers the longitude info
     let long = position.coords.longitude;
 
-    //Create a variable that  shows the nearest city closest to you
-    // let location = position.coords.accuracy;
-    
-    //Enter the API key; this will take a few hours to activate. It was generated around 6AM, June 10
     let API_KEY = "8a8a81fda9977409b7e63aeaed6e20d9";
-    let baseURL = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${API_KEY}`;
-    $.get(baseURL,function(res){
-        let data = res.current;
-        let temp = Math.floor(data.temp - 273);
-        let condition = data.weather[0].description;
+    let weatherURL = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}`;
+    let forecastURL = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current,minutely,hourly&appid=${API_KEY}`;
 
-         // Display data on the web page
-        //  $('#weather-area').html(`${location}`);
+    $.get(weatherURL, function (weatherRes) {
+        let temp = Math.floor(weatherRes.main.temp - 273);
+        let condition = weatherRes.weather[0].description;
+
         $('#weather-temp').html(`${temp}°`);
         $('#weather-condition').html(condition);
-    })
+
+        $.get(forecastURL, function (forecastRes) {
+            let forecastData = forecastRes.daily;
+            let forecastList = document.getElementById('forecast-list');
+            forecastList.innerHTML = '';
+
+            for (let i = 1; i <= 7; i++) {
+                let forecastItem = document.createElement('li');
+                let date = new Date(forecastData[i].dt * 1000);
+                let day = date.toLocaleDateString('en-US', { weekday: 'long' });
+                let forecastTemp = Math.floor(forecastData[i].temp.day - 273);
+                let forecastCondition = forecastData[i].weather[0].description;
+
+                forecastItem.innerHTML = `${day}: ${forecastTemp}° - ${forecastCondition}`;
+                forecastList.appendChild(forecastItem);
+            }
+        });
+
+        let reverseGeocodingURL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${API_KEY}`;
+
+        $.get(reverseGeocodingURL, function (locationRes) {
+            let location = locationRes[0].name + ', ' + locationRes[0].country;
+            $('#location').html(location);
+        });
+    });
 }
-//Call getLocation function
+
 getLocation();

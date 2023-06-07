@@ -4,23 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Carter Bochek">
-    <meta name="description" content="Weather Application that finds the weather for your geological location">
-    <link rel="stylesheet" href="/styles/auto-weather.css"/>
+    <meta name="description" content="Weather Application that finds the weather for your geographical location">
+    <link rel="stylesheet" href="auto-weather.css"/>
     <title>Weather Auto Detect</title>
 </head>
 <body>
-    <!-- <img src="/images/evert-van-duijn-NSRlbb8JoF8-unsplash.jpg" alt="Desert with small vegetation and distant mountain"> -->
     <header>
         <h1>Weather Lookup</h1>
     </header>
     <main>
-        
         <div class="weather-container">
             <p>Right now it is:</p>
             <h2 id="weather-temp">0°</h2>
             <h3 id="weather-condition">Unknown</h3>
+            <div id="location"></div>
         </div>
-        <!-- <a href="/html/select-page.html">Other Page</a> -->
+        <div class="seven-day-weather-box">
+            <h2>7-day Forecast</h2>
+            <ul id="forecast-list"></ul>
+        </div>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/scripts/weather-lookup.js"></script>
