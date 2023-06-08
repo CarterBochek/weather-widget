@@ -48,10 +48,11 @@ header {
 }
 ul {
     list-style-type: none;
+    text-transform: capitalize;
   }
-main {
-    /* margin-left: 2vw; */
-}
+/* main {
+    margin-left: 2vw;
+} */
 /* This is the CSS that I will need to alter below*/
 .weather-container{
     /* text-transform: uppercase; */

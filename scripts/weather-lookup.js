@@ -18,7 +18,7 @@ function getWeatherAndLocation(position) {
         let temp = Math.floor(weatherRes.main.temp - 273);
         let condition = weatherRes.weather[0].description;
 
-        $('#weather-temp').html(`${temp}°`);
+        $('#weather-temp').html(`${temp}°C`);
         $('#weather-condition').html(condition);
 
         $.get(forecastURL, function (forecastRes) {
